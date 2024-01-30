@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- navbar -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--drop down-->
+
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="path/to/jquery.min.js"></script>
+<script src="path/to/popper.min.js"></script>
+<script src="path/to/bootstrap/js/bootstrap.min.js"></script>
+
+
+  <div class="external">
+    <nav class="navbar navbar-expand-lg">
+      <div class="menu">
+        <img src="../../assets/icons8-menu-32.png">
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" (input)="onsearch()" placeholder="Search" aria-label="Search">
+      </form>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <img class="homelogo" href="#" src="../../assets/home-symbol-png-white.png">
+          </li>
+          <li class="nav-item">
+            <img class="homelogo" href="#" src="../../assets/settings.png">
+          </li>
+          <li class="nav-item dropdown">
+            <img class="homelogo" href="#" src="../../assets/Line_chart_icon_Noun_70892_cc_White.svg.png">
+          </li>
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- navbar end  -->
+
+    <!-- sidebar -->
+    <div class="sidebar">
+      <div class="logodiv" href="#">
+        <img src="../../assets/logo (1).png" class="logo">
+        <a class="navbar-brand" id="todos">TODO</a>
+      </div>
+      <ul class="sidebar-menu">
+        <!-- <div class="upper"> -->
+        <li routerLink="/home">Home</li>
+        <br>
+        <li routerLink="/completedtask">Completed Task</li>
+        <br>
+        <li routerLink="/Upcoming">Upcoming Task</li>
+        <br>
+  
+          <li (click)="getCategory()" [ngClass]="{'cat_shadow':toggle}">Category</li>
+          <br>
+          <div  *ngIf="toggle">
+         
+              <li *ngFor="let cat of allcategories" class="categories">{{cat.category}}</li>
+              
+         
+          </div>
+        
+        <br>
+        <!-- </div> -->
+        <div class="logout-container" style="margin-right:0">
+          <img  style="width:60px; height:50px;" src="../../assets/icons8-user-60.png">
+          <li routerLink="/" (click)="Logout()">Logout</li>
+      </div>
+      </ul>
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- right sidebar -->
+  <div class="rightsidebar" [class.open]="isSidebarOpen">
+    <img class="logos" src="../../assets/left-arrow.png" (click)="closesidebar()">
+
+    <div *ngIf="selectedTask">
+      <div style="display: flex;">
+      <h3>  {{selectedTask.task_name}}</h3>
+      <ng-container *ngIf="selectedTask.priority === 1">
+        <div class="prioritystyle1">{{ selectedTask.priority }}</div>
+      </ng-container>
+      <ng-container *ngIf="selectedTask.priority === 2">
+        <div class="prioritystyle2">{{ selectedTask.priority }}</div>
+      </ng-container>
+      <ng-container *ngIf="selectedTask.priority === 3">
+        <div class="prioritystyle3">{{ selectedTask.priority }}</div>
+      </ng-container>
+      </div>
+      <p style="color:red; font-size: smaller; margin-bottom:0">Due:{{ selectedTask.due_date | date:'dd/MM/yyyy' }}</p>
+      <p>{{ selectedTask.task_des }}</p>
+     <hr><br>
+     <div class="subs" *ngIf="sub_task_array && sub_task_array.length > 0">
+      <p *ngFor="let subtask of sub_task_array">Subtask: {{ subtask.sub_task_name }}</p>
+    </div>
+    
+      
+<!-- add subtask -->
+    <div class="dropdown">
+      <div class="edit">
+        <img src="../../assets/icons8-branch-32.png" width="30px" height="30px">
+        <p (click)="toggleAddSubtaskForm()">Add Sub Task</p>
+      </div>
+      
+      <form [formGroup]="subtaskForm" *ngIf="showAddSubtaskForm" (submit)="addsubtask(selectedTask.id)">
+        <div class="styled-form">
+          <p>Subtask Name:</p>
+          <input type="text" formControlName="sub_task_name">
+          <p>Subtask Description:</p>
+          <input type="text" formControlName="sub_task_des">
+          <br>
+          <button type="submit" class="btn btn-primary">Add Subtask</button>
+  
+        </div>
+      </form>
+  
+    </div>
+   <!-- add subtask end -->
+    
+   <!-- update task -->
+    <br>
+    <div class="edit">
+      <img src="../../assets/ed.png" width="30px" height="30px">
+    <p (click)="toggleUpdateTaskForm()">Edit Task</p><br>
+  </div>
+    <form [formGroup]="form" *ngIf="showUpdatetaskForm" (submit)="updateTask(selectedTask.id)">
+      <div class="styled-form">
+        
+        <p>Task Name:</p>
+        <input type="text" formControlName="task_name">
+        <p>Task Description:</p>
+        <input type="text" formControlName="task_des">
+        <br>
+        <p>Label:</p>
+        <input type="text" formControlName="category">
+        <br>
+        <p>Due Date:</p>
+        <input type="date" formControlName="due_date">
+        <br>
+        <p>Priority:</p>
+        <select id="priority" formControlName="priority" class="form-control">
+          <option value="0">Default</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      <br>
+        <button type="submit" class="btn ">Update</button><hr>
+      </div>
+      <hr>
+    </form>
+ <!-- updatetask end -->
+    
+
+    <p style="color:white">ffsgsghdhdtdjtktkykfasdfsrgrgrjtk</p>
+
+      <!-- Add more details as needed -->
+    </div>
+<!-- end of right sidebar -->
+
+<!-- add task -->
+<form [formGroup]="form" (submit)="addtask()" class="styled-form">
+  <div class="add-task-form" *ngIf="ShowAddTaskForm">
+    <h2>Task Details</h2>
+    <br><br>
+    <div class="form-group">
+      <label for="task_name">Task Name:</label>
+      <input type="text" id="task_name" formControlName="task_name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="task_des">Task Description:</label>
+      <input type="text" id="task_des" formControlName="task_des" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="due_date">Due Date:</label>
+      <input type="date" id="due_date" formControlName="due_date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="task_category">Label:</label>
+      <input type="text" id="task_category" formControlName="category" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="priority">Priority:</label>
+      <select id="priority" formControlName="priority" class="form-control">
+        <option value="0">Default</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </div>
+</form>
+
+  </div>
+  <!-- addtask end -->
+
+  <!-- main page task entry -->
+  <div class="content">
+    <h2 class="con-task">Tasks</h2>
+    <!-- filter -->
+    <br>
+    <div class="priorstyle">
+      <select class="con-task" (change)="setfilter($event)">
+        <option value=0>Filter</option>
+        <option value=1>High to Low</option>
+        <option value=2>Low to High</option>
+        <option value=3>Overdue</option>
+     
+      </select>
+      <div class="addtask" [ngClass]="{'addtask-expanded':isSidebarOpen,'addtask-shrunk':!isSidebarOpen}" (click)="showAddTaskForm()">
+        <img src="../../assets/plus-sign-transparent-free-png.webp">
+        <a>Add task</a>
+      </div>
+    </div>
+    <br>
+    <hr class="line" [ngClass]="{'line-expanded':isSidebarOpen,'line-shrunk':!isSidebarOpen}">
+    <br>
+    <h5 *ngIf="task_array.length === 0">
+      <li>No tasks to display.</li>
+    </h5>
+    <div class="taskcontainer">
+      <div>
+        <!-- Display Overdue Tasks -->
+        <div *ngIf="task_array.length > 0">
+          <ul>
+            <li *ngFor="let task of task_array" (click)="taskClicked = false; task_details(); selectTask($event,task)" class="task-item"
+            [ngClass]="{'task-item-expanded': isSidebarOpen, 'task-item-shrunk': !isSidebarOpen}">
+              <div class="taskdata" >
+                <div class="tskandpri">
+                  <div class="taskstyle"><input type="radio" (change)="deleteTask(task.id)"
+                      class="">{{ task.task_name }}</div>
+                  <ng-container *ngIf="task.priority === 1">
+                    <div class="prioritystyle1">{{ task.priority }}</div>
+                  </ng-container>
+                  <ng-container *ngIf="task.priority === 2">
+                    <div class="prioritystyle2">{{ task.priority }}</div>
+                  </ng-container>
+                  <ng-container *ngIf="task.priority === 3">
+                    <div class="prioritystyle3">{{ task.priority }}</div>
+                  </ng-container>
+                </div>
+                <div class="des-date">
+                  <a class="desstyle">{{ task.task_des }}</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,173 @@
+.collapse
+{
+    position: absolute;
+    right:0;
+}
+.navbar
+{
+    background-color: #1967FF;
+    
+}
+
+.nav-link
+{
+    color:azure;
+}
+.menu
+{
+    margin-right:40px;
+}
+/* Sidebar Styling */
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 310px;
+    background: #ffffff;
+    min-height: 100vh;
+    position: fixed;
+    padding-top: 20px;
+    padding-right: 26px;
+    transition: width 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+    line-height: normal;
+  }
+  
+  /* Logo Styling */
+  .logodiv {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .logodiv img.logo {
+    width: 50px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .logodiv a.navbar-brand {
+    font-weight: 600;
+    font-size: 28px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  
+  /* Sidebar Menu Styling */
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 290px;
+    text-align: center;
+    line-height: normal;
+
+  }
+  
+  .sidebar-menu li {
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+    cursor: pointer; /* Added cursor style */
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    list-style: none;
+    padding: 10px;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  .sidebar-menu a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    border-radius: 8px;
+    transition: color 0.2s;
+    padding: 10px; /* Adjusted padding */
+  }
+  
+  /* Sidebar Menu Hover Effect */
+  .sidebar-menu li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  }
+  
+  .sidebar-menu a:hover {
+    color: #000000; /* Lighter text color on hover */
+  }
+
+  .sidebar-menu li:nth-child(3){
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color:rgba(0, 0, 0, 0.1);
+  }
+
+  /* Logout Styling */
+  .logout-container {
+    display:flex;
+    align-items:center;
+    margin-top: 380px;
+  }
+  
+  .logout-container img {
+    margin-right: 5px;
+    padding-left:30px;
+    padding-top:20px; /* Add some space between the image and the list item */
+  }
+  
+  .logout-container li {
+    padding-top:20px;
+    list-style: none; /* Remove default list styling */
+  }
+  .logout-container{
+    position: absolute;
+    bottom:0;
+    left:0;
+    padding:30px;
+  }
+  .body
+  {
+    line-height: normal;
+    
+  }
+/* sidebar end */
+.content
+{
+    margin-top: 50px;
+    margin-left: 400px;
+}
+
+.tasks
+{
+    margin-top: 50px;
+    width:900px;
+    border-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* You can adjust alignment as needed */
+    border: #000000 solid 1px;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: rgb(255, 255, 255,0.8);
+}
+
+.homelogo
+{
+  width:20px;
+  height:20px;
+  display: flex;
+  align-items: center;
+  margin-right:30px;
+}
+
+
+body
+{
+  background: rgba(217, 217, 217, 0.38);
+  width:auto;
+  height:100vh;
+}

@@ -1,0 +1,582 @@
+body
+{
+  background: rgba(217, 217, 217, 0.38);
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  overflow-y: scroll;
+}
+
+
+.collapse
+{
+    position: absolute;
+    right:0;
+}
+/* Navbar Styling */
+.navbar {
+  background-color: #1967FF;
+  position: fixed; /* Fixed position */
+  width: 100%; /* Take up the full width of the viewport */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+
+.form-inline .btn{
+  width:80px;
+  border-radius: 20px;
+  
+}
+
+.nav-link
+{
+    color:azure;
+}
+.menu
+{
+    margin-right:40px;
+}
+
+
+  
+  /* Logo Styling */
+  .logodiv {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .logodiv img.logo {
+    width: 50px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .logodiv a.navbar-brand {
+    font-weight: 600;
+    font-size: 28px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  
+  /* Sidebar Menu Styling */
+
+    /* Right Sidebar */
+    .rightsidebar
+    {
+      width:0px;
+      height:100vh;
+      background-color:#ffffff;
+      right:0;
+      transition: width 0.3s ease;
+
+      position: fixed;
+      
+    }
+    
+    .rightsidebar.open
+    {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 331px;
+      background: #ffffff;
+      min-height: 100vh;
+      position: fixed;
+      padding-top: 130px;
+
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      line-height: normal;
+      overflow-x: auto;
+      overflow-y: scroll;
+    
+    }
+    
+    .details
+    {
+      padding-top:90px;
+      transition: width 0.3s ease;
+    }
+    /* rightbarend */
+  
+  /*  left Sidebar */
+  
+  
+  .sidebar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width:331px;
+      background: #ffffff;
+      min-height: 100vh;
+      position: fixed;
+      padding-top: 72px;
+      padding-right: 26px;
+      transition: width 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+      line-height: normal;
+    
+    }
+
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 310px;
+    text-align: center;
+    line-height: normal;
+
+  }
+  
+  .sidebar-menu li {
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+    cursor: pointer; /* Added cursor style */
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    list-style: none;
+    padding: 10px;
+    font-weight: 500;
+    line-height: normal;
+
+  }
+  
+  .sidebar-menu a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    border-radius: 8px;
+    transition: color 0.2s;
+    padding: 10px; /* Adjusted padding */
+  }
+  
+  /* Sidebar Menu Hover Effect */
+  .sidebar-menu li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  }
+  
+  .sidebar-menu a:hover {
+    color: #000000; /* Lighter text color on hover */
+  }
+
+  .sidebar-menu li:first-child{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color:rgba(0, 0, 0, 0.1);
+  }
+
+  /* Logout Styling */
+  .logout-container {
+    display:flex;
+    align-items:center;
+    margin-top: 380px;
+  }
+  
+  .logout-container img {
+    margin-right: 5px;
+    padding-left:30px;
+    padding-top:20px; /* Add some space between the image and the list item */
+  }
+  
+  .logout-container li {
+    padding-top:20px;
+    list-style: none; /* Remove default list styling */
+  }
+  .logout-container{
+    position: absolute;
+    bottom:0;
+    left:0;
+    padding:30px;
+  }
+  .body
+  {
+    line-height: normal;
+    overflow-y: scroll;
+  }
+/* sidebar end */
+
+
+/* main content */
+.content
+{
+    margin-top: 120px;
+    margin-left: 369.5px;
+}
+
+.con-task
+{
+  margin-left:30px;
+}
+
+.line
+{
+  transition: all 0.3s ease;
+  margin-left:60px;
+}
+
+.line-expanded
+{
+width:1059px;
+}
+
+.taskstyle
+{
+  display:flex;
+  column-gap: 15px;
+}
+.cat_shadow:nth-child(9){
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+background-color:rgba(0, 0, 0, 0.1);
+}
+
+
+.line-shrunk
+{
+  width:1160px;
+}
+.tasks
+{
+    margin-top: 50px;
+    width:900px;
+    border-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* You can adjust alignment as needed */
+    border: #000000 solid 1px;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+   
+}
+
+.homelogo
+{
+  width:20px;
+  height:20px;
+  display: flex;
+  align-items: center;
+  margin-right:30px;
+}
+
+.display
+{
+  display:flex;
+
+}
+.desstyle{
+  padding-left:30px;
+}
+
+
+
+.taskdata{
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+li{
+  list-style-type: none;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* You can adjust alignment as needed */
+  padding: 10px;
+  margin-bottom: 20px;
+  background: rgb(255, 255, 255,0.8);
+  margin-right:100px;
+  width:100vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: all 0.3s ease;
+}
+
+/* Expanded state */
+.task-item-expanded {
+  width: 1100px;
+}
+
+/* Shrunk state */
+.task-item-shrunk {
+   width:1200px;
+}
+
+.task-item:hover{
+    background-color: rgba(0, 0, 0, 0.051);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
+
+
+.tskandpri{
+  display: flex;
+  align-items: center; 
+}  
+
+.taskstyle{
+  font-size: 30px;
+  font-weight: 600;
+} 
+
+.des-date 
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+/* priority */
+.prioritystyle1, .prioritystyle2, .prioritystyle3{
+  font-size: 18px;   
+  font-weight: 600;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  margin-left: 10px; 
+
+}
+
+.prioritystyle1{
+  background-color: green;
+}
+
+.prioritystyle2{
+  background-color: orange;
+}
+
+.prioritystyle3{
+  background-color: red;
+}
+/* priority end */
+
+/* filter */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 10px; /* Subtracting the space of 70px for navbar */
+  font-weight: 700;
+  margin-top: 40px;
+}
+
+.priorstyle select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 3px solid #000000;
+  /* background-color: white; */
+  color: #000000;
+  transition: border-color 0.3s ease;
+  background-color: #dfdfdf;
+}
+
+
+
+.priorstyle{
+  /* background: rgb(255, 255, 255,0.8); */
+  backdrop-filter: blur(1px);
+  width:max-content;
+  display: flex;
+}
+
+.priorstyle select:focus {
+  border-color: #000000;
+  outline: #000000;
+  border: 3px solid #000000;
+}
+
+
+.addtask
+{
+  transition: all 0.3s ease;
+  
+}
+.addtask img{
+  width:30px;
+  height:30px;
+}
+
+.addtask-expanded
+{
+ margin-left:885px;
+}
+
+.addtask-shrunk
+{
+  margin-left:984px;
+}
+
+.logos
+{
+  width:30px;
+  height:30px;
+  position: absolute;
+  top:80px;
+}
+
+.rightsidebar .logos{
+ display: flex;
+ align-self: flex-start;
+}
+
+.combined-container{
+  padding-right: 40px;
+  padding-top: 40px;
+}
+
+.container-fluid
+{
+
+  width:20%;
+  display:flex;
+  position: absolute;
+  flex-direction: unset;
+  color:black;
+}
+
+.dflex{
+  align-items:center;
+  width: 200px;
+  background-color: #ffffff;
+  left: auto;
+  text-decoration: #000000;
+}
+
+.desstyle{
+  font-size: 18px;   
+  font-weight: 400;
+  flex:1;
+  display:inline-block;
+} 
+
+.container {
+  display: flex;
+  align-items: center; 
+} 
+
+.imgstyle {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px; 
+}
+
+.subtstyle{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.subdstyle{
+  font-size: 15px;   
+  font-weight: 400;
+}
+
+
+.dropdown .dropdown-menu {
+  right: auto;
+  left: 0;
+  width: 300px;
+  border: 1px solid #1967FF;
+}
+
+.btn {
+  width: 150px;
+  display: inline-block;
+  padding: 8px 6px;
+  margin-bottom: 5px;
+  border: 3px solid #1967FF;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1967FF;
+  color: white;
+}
+
+.taskcontainer
+{
+  display:flex;
+
+}
+
+.edit
+{
+  display:flex;
+  min-height: 2px;
+  
+}
+
+.edit p{
+  padding-left:20px;
+}
+
+.subdstyle{
+  font-size: 15px;   
+  font-weight: 400;
+}
+
+
+.dropdown .dropdown-menu {
+  right: auto;
+  left: 0;
+  width: 300px;
+  border: 1px solid #1967FF;
+}
+
+/* home.component.css */
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.edit img {
+  margin-right: 10px;
+}
+
+.styled-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.styled-form p {
+  margin-bottom: 5px;
+}
+
+.styled-form input,
+.styled-form select {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.styled-form button {
+  background-color: #1967FF;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add more styles as needed */
